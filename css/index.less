@@ -1,0 +1,260 @@
+
+.bg(@color:black){
+  background-color: @color;
+}
+
+.boxShade(@l:0 , @r:0, @d:10px ,@c:white){
+  box-shadow: @arguments ;
+}
+.border(@d:1px , @s:solid , @c:black){
+  border: @arguments;
+}
+.fSize(@s:16px){
+  font-size: @s;
+}
+//
+@keyframes goTo {
+  0%{
+    transform: rotateZ(0deg);
+  }
+  25%{
+    transform: rotateZ(5deg);
+  }
+  50%{
+    transform: rotateZ(0deg);
+  }
+  75%{
+    transform: rotateZ(-5deg);
+  }
+  100%{
+    transform: rotateZ(0deg);
+  }
+}
+@keyframes changeRotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  25%{
+    transform: rotateY(25deg);
+  }
+  50%{
+    transform: rotateY(0deg);
+  }
+  75%{
+    transform: rotateY(-25deg);
+  }
+  100%{
+    transform: rotateY(0deg);
+  }
+}
+body{
+  .bg(@color: white) ;
+
+  min-width: 500px;
+}
+#box{
+  width: 100% ;
+  position: absolute;
+  display: flex;
+  z-index: 999;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  .left{
+    margin-left: 20px;
+    //.bg(@color: white) ;
+    flex: 1;
+    img{
+      width: 100%;
+      display: block;
+    }
+  }
+  .right{
+    margin-right: 20px;
+    flex: 8;
+    .bg(@color: transparent) ;
+    border-left: 3px solid #244664;
+    box-sizing: border-box;
+  }
+}
+.left ul{
+
+  padding: 20px;
+  li{
+    margin: 10px 0;
+  }
+  li span{
+    color: #3c546a;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    .border(@c: #333f51) ;
+    .fSize(@s: 14px);
+    cursor: pointer;
+    &:hover{
+      .bg(@color: black) ;
+      color: white;
+    }
+  }
+}
+.right{
+  header{
+    padding-left: 40px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-image: url(../img/2.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: white;
+    h1{
+      color: white;
+      .fSize(@s: 24px) ;
+      font-weight: normal;
+    }
+    div{
+      color: white;
+      line-height: 36px;
+      .fSize(@s: 14px) ;
+    }
+  }
+  .content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative;
+  }
+  .tel{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 3px solid #333f51;
+    box-sizing: border-box;
+    .fSize(@s: 0) ;
+    padding-left: 18px;
+    div{
+      display: inline-block;
+      .fSize(@s: 12px) ;
+      margin-left: 22px;
+      img{
+        width: 16px;
+        height: 16px;
+        margin-top: 13px;
+      }
+      span{
+        margin-left: 6px;
+      }
+    }
+  }
+  .content .cont {
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    margin: 20px 0;
+    .boxShade(@c: red);
+    .bg(@color: white) ;
+
+    h2{
+      text-align: center;
+      font-weight: normal;
+      .fSize(@s: 20px) ;
+      line-height: 32px;
+      .boxShade(@c: red) ;
+    }
+    ul{
+      margin-top: 3px;
+    }
+    .about li{
+      padding-left: 20px;
+      .fSize(@s: 14px) ;
+      line-height: 24px;
+    }
+  }
+}
+.cont:nth-of-type(odd){
+  animation: goTo 5s infinite;
+}
+.cont:nth-of-type(even){
+  animation: changeRotate 5s infinite;
+}
+
+.cont ul span{
+  display: inline-block;
+  width: 70px;
+  text-align: right;
+  padding-right: 10px;
+  &:after{
+    content: ' | ';
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+._p{
+  .fSize(@s: 14px);
+  text-indent: 2rem;
+  line-height: 1.5rem;
+  margin-top: 3px;
+  padding: 0 8px;
+}
+.p1{
+  .fSize(@s: 14px) ;
+  line-height: 36px;
+  span{
+    padding-right: 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    &:after{
+      content: ' | ';
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+}
+.job{
+  .fSize(@s: 14px) ;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.ele{
+  padding-left: 20px;
+  li{
+
+    em{
+      display: inline-block;
+      vertical-align: middle;
+      text-align: right;
+      width: 100px;
+      .fSize(@s: 14px) ;
+
+      margin-right: 10px;
+    }
+    div{
+      width: 160px;
+      display: inline-block;
+      height: 16px;
+      .border() ;
+      vertical-align: top;
+      margin-top: 3px;
+      border-radius: 3px;
+      .bg(@color: #ccc) ;
+    }
+  }
+}
+.loving{
+  padding-left: 20px;
+  padding-right: 20px;
+  .fSize(@s: 14px) ;
+  p {
+    margin-top: 10px;
+    text-indent: 2rem;
+    line-height: 24px;
+  }
+}
+#canvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: white;
+}
